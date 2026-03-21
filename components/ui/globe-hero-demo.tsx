@@ -1,9 +1,11 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
 import { DotGlobeHero } from "@/components/ui/globe-hero";
 import { ArrowRight, Zap } from "lucide-react";
 export default function DotGlobeHeroDemo() {
+  const router = useRouter();
   return (
     <DotGlobeHero
       rotationSpeed={0.004}
@@ -71,6 +73,7 @@ export default function DotGlobeHeroDemo() {
           className="flex flex-col sm:flex-row gap-6 justify-center items-center pt-4"
         >
           <motion.button
+            onClick={() => router.push("/import")}
             whileHover={{
               scale: 1.05,
               boxShadow: "0 20px 40px rgba(0,0,0,0.2), 0 0 25px hsl(var(--primary) / 0.3)",
