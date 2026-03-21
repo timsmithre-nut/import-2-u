@@ -91,6 +91,9 @@ export default function DotGlobeHeroDemo() {
           </motion.button>
 
           <motion.button
+            onClick={() =>
+              document.getElementById("learn-more")?.scrollIntoView({ behavior: "smooth" })
+            }
             whileHover={{
               scale: 1.05,
               backgroundColor: "hsl(var(--accent))",
@@ -103,7 +106,7 @@ export default function DotGlobeHeroDemo() {
           >
             <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             <Zap className="relative z-10 w-5 h-5 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300" />
-            <span className="relative z-10 tracking-wide">Learn more</span>
+            <span className="relative z-10 tracking-wide">Learn More</span>
           </motion.button>
         </motion.div>
       </div>
