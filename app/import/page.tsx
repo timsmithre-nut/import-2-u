@@ -4,7 +4,6 @@ import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { ImportHeader } from "@/components/ui/import-header";
-import Image from "next/image";
 import { Check } from "lucide-react";
 
 const STEPS = ["URL", "Price", "Info", "Import"] as const;
@@ -78,17 +77,8 @@ export default function ImportPage() {
     <div className="min-h-screen w-full bg-gradient-to-br from-pink-300 via-purple-300 to-orange-200 flex flex-col">
       <ImportHeader />
 
-      <div className="flex flex-1 flex-col items-center justify-center px-4 py-12">
+      <div className="flex flex-1 flex-col items-center justify-center px-4 py-6">
         <div className="flex flex-col items-center gap-6 w-full max-w-2xl">
-
-          <Image
-            src="/logo.svg"
-            alt="Logo"
-            width={200}
-            height={64}
-            className="h-14 w-auto"
-            onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }}
-          />
 
           {/* single card */}
           <div className="w-full bg-white/40 backdrop-blur-sm border border-white/50 rounded-2xl shadow-xl overflow-hidden">
