@@ -149,13 +149,40 @@ export default function ImportPage() {
           )}
 
           {step === 3 && (
-            <Card className="w-full bg-white/40 backdrop-blur-sm border-white/50 shadow-md rounded-xl">
+            <Card className="w-full bg-white/40 backdrop-blur-sm border-white/50 shadow-md rounded-xl overflow-hidden">
               <CardContent className="py-6 px-6 flex flex-col gap-5">
                 <div className="flex items-center justify-between">
-                  <h2 className="text-gray-800 font-semibold text-lg">Step 3</h2>
+                  <h2 className="text-gray-800 font-semibold text-lg text-center flex-1">Add payment method:</h2>
                   <span className="text-sm text-gray-500 font-medium">3 of 3</span>
                 </div>
-                <p className="text-gray-600 text-sm">Step 3 content coming soon.</p>
+
+                <div className="grid grid-cols-4 gap-2">
+                  {[
+                    { label: "PayPal",     bg: "bg-[#003087]", text: "text-[#009cde]",  font: "font-extrabold italic" },
+                    { label: "Mastercard", bg: "bg-[#eb001b]", text: "text-white",       font: "font-bold" },
+                    { label: "Visa",       bg: "bg-[#1a1f71]", text: "text-white",       font: "font-extrabold italic" },
+                    { label: "Maestro",    bg: "bg-[#0099df]", text: "text-white",       font: "font-bold" },
+                    { label: "Apple Pay", bg: "bg-black",      text: "text-white",       font: "font-semibold" },
+                    { label: "Amazon Pay",bg: "bg-[#ff9900]",  text: "text-[#232f3e]",   font: "font-bold" },
+                    { label: "Google Pay",bg: "bg-white",      text: "text-gray-700",    font: "font-semibold" },
+                    { label: "Stripe",    bg: "bg-[#635bff]",  text: "text-white",       font: "font-bold" },
+                  ].map(({ label, bg, text, font }) => (
+                    <button
+                      key={label}
+                      className={`${bg} ${text} ${font} rounded-xl h-14 flex items-center justify-center text-[11px] text-center px-1 leading-tight shadow-sm hover:opacity-90 active:scale-95 transition-all`}
+                    >
+                      {label}
+                    </button>
+                  ))}
+                </div>
+
+                <Button className="w-full h-11 rounded-xl bg-purple-500 hover:bg-purple-600 text-white">
+                  Pay
+                </Button>
+
+                <div className="-mx-6 -mb-6 bg-red-600 py-3 px-5 text-white text-sm font-medium text-center">
+                  Disclaimer! We do not offer Refunds
+                </div>
               </CardContent>
             </Card>
           )}
