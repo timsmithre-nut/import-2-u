@@ -41,54 +41,13 @@ function ImportHeader() {
 
   return (
     <header className="w-full z-40 fixed top-0 left-0 bg-white/30 backdrop-blur-md border-b border-white/20">
-      <div className="container relative mx-auto min-h-20 flex gap-4 flex-row lg:grid lg:grid-cols-3 items-center">
+      <div className="container relative mx-auto min-h-20 flex flex-row items-center justify-between gap-4">
 
-        {/* Left: nav links */}
-        <div className="justify-start items-center gap-4 lg:flex hidden flex-row">
-          <NavigationMenu className="flex justify-start items-start">
-            <NavigationMenuList className="flex justify-start gap-4 flex-row">
-              {navigationItems.map((item) => (
-                <NavigationMenuItem key={item.title}>
-                  {item.href ? (
-                    <NavigationMenuLink href={item.href}>
-                      <Button variant="ghost" className="text-gray-800 hover:bg-white/30">{item.title}</Button>
-                    </NavigationMenuLink>
-                  ) : (
-                    <>
-                      <NavigationMenuTrigger className="font-medium text-sm text-gray-800 bg-transparent hover:bg-white/30 data-[state=open]:bg-white/30">
-                        {item.title}
-                      </NavigationMenuTrigger>
-                      <NavigationMenuContent className="!w-[320px] p-4">
-                        <div className="flex flex-col gap-2">
-                          <p className="text-base font-medium">{item.title}</p>
-                          <p className="text-muted-foreground text-sm mb-2">{item.description}</p>
-                          <div className="flex flex-col text-sm">
-                            {item.items?.map((subItem) => (
-                              <NavigationMenuLink
-                                href={subItem.href}
-                                key={subItem.title}
-                                className="flex flex-row justify-between items-center hover:bg-muted py-2 px-4 rounded"
-                              >
-                                <span>{subItem.title}</span>
-                                <MoveRight className="w-4 h-4 text-muted-foreground" />
-                              </NavigationMenuLink>
-                            ))}
-                          </div>
-                        </div>
-                      </NavigationMenuContent>
-                    </>
-                  )}
-                </NavigationMenuItem>
-              ))}
-            </NavigationMenuList>
-          </NavigationMenu>
-        </div>
-
-        {/* Center: logo */}
-        <div className="flex lg:justify-center">
+        {/* Left: logo + nav links */}
+        <div className="flex items-center gap-6">
           <Link href="/">
             <Image
-              src="/logo.png"
+              src="/logo.svg"
               alt="Logo"
               width={120}
               height={40}
@@ -97,10 +56,50 @@ function ImportHeader() {
               onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }}
             />
           </Link>
+
+          <div className="justify-start items-center gap-4 lg:flex hidden flex-row">
+            <NavigationMenu className="flex justify-start items-start">
+              <NavigationMenuList className="flex justify-start gap-4 flex-row">
+                {navigationItems.map((item) => (
+                  <NavigationMenuItem key={item.title}>
+                    {item.href ? (
+                      <NavigationMenuLink href={item.href}>
+                        <Button variant="ghost" className="text-gray-800 hover:bg-white/30">{item.title}</Button>
+                      </NavigationMenuLink>
+                    ) : (
+                      <>
+                        <NavigationMenuTrigger className="font-medium text-sm text-gray-800 bg-transparent hover:bg-white/30 data-[state=open]:bg-white/30">
+                          {item.title}
+                        </NavigationMenuTrigger>
+                        <NavigationMenuContent className="!w-[320px] p-4">
+                          <div className="flex flex-col gap-2">
+                            <p className="text-base font-medium">{item.title}</p>
+                            <p className="text-muted-foreground text-sm mb-2">{item.description}</p>
+                            <div className="flex flex-col text-sm">
+                              {item.items?.map((subItem) => (
+                                <NavigationMenuLink
+                                  href={subItem.href}
+                                  key={subItem.title}
+                                  className="flex flex-row justify-between items-center hover:bg-muted py-2 px-4 rounded"
+                                >
+                                  <span>{subItem.title}</span>
+                                  <MoveRight className="w-4 h-4 text-muted-foreground" />
+                                </NavigationMenuLink>
+                              ))}
+                            </div>
+                          </div>
+                        </NavigationMenuContent>
+                      </>
+                    )}
+                  </NavigationMenuItem>
+                ))}
+              </NavigationMenuList>
+            </NavigationMenu>
+          </div>
         </div>
 
         {/* Right: Sign up + Account */}
-        <div className="flex justify-end w-full gap-3">
+        <div className="flex justify-end gap-3">
           <Button variant="outline" className="hidden md:inline-flex bg-white/40 border-white/50 text-gray-800 hover:bg-white/60">
             Sign up
           </Button>
