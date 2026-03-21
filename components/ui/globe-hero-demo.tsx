@@ -28,15 +28,15 @@ export default function DotGlobeHeroDemo() {
               style={{ fontFamily: 'Inter, system-ui, sans-serif' }}
             >
               <span className="block font-light text-foreground/70 mb-3 text-4xl md:text-6xl lg:text-7xl">
-                Connect
+                Import
               </span>
               <span className="block relative">
                 <span className="bg-gradient-to-br from-primary via-primary to-primary/60 bg-clip-text text-transparent font-black relative z-10">
-                  the World
+                  Anything
                 </span>
                 <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary to-primary/60 bg-clip-text text-transparent font-black blur-2xl opacity-50 scale-105"
                      style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
-                  the World
+                  Anything
                 </div>
                 <motion.div
                   initial={{ width: 0 }}
@@ -56,9 +56,9 @@ export default function DotGlobeHeroDemo() {
           >
             <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed font-medium"
                style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
-              Experience real-time global connectivity with our{" "}
+              Bring your favourite products from abroad straight to your door in Switzerland{" "}
               <span className="text-foreground font-semibold bg-gradient-to-r from-primary/20 to-primary/10 px-2 py-1 rounded-md">
-                distributed network infrastructure
+                fast, easy, and hassle-free
               </span>
             </p>
           </motion.div>
