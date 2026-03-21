@@ -12,6 +12,10 @@ type Step = "url" | 1 | 2 | 3;
 export default function ImportPage() {
   const [step, setStep] = useState<Step>("url");
   const [url, setUrl] = useState("");
+  const [originalPrice] = useState(() => parseFloat((Math.random() * 480 + 20).toFixed(2)));
+
+  const fee = parseFloat((originalPrice * 0.15).toFixed(2));
+  const total = parseFloat((originalPrice + fee).toFixed(2));
 
   function handleUrlSubmit() {
     if (url.trim()) setStep(1);
@@ -116,12 +120,29 @@ export default function ImportPage() {
             <Card className="w-full bg-white/40 backdrop-blur-sm border-white/50 shadow-md rounded-xl">
               <CardContent className="py-6 px-6 flex flex-col gap-5">
                 <div className="flex items-center justify-between">
-                  <h2 className="text-gray-800 font-semibold text-lg">Step 2</h2>
+                  <h2 className="text-gray-800 font-semibold text-lg text-center flex-1">Our Offer:</h2>
                   <span className="text-sm text-gray-500 font-medium">2 of 3</span>
                 </div>
-                <p className="text-gray-600 text-sm">Step 2 content coming soon.</p>
+
+                <div className="flex flex-col gap-3 bg-white/30 rounded-xl px-5 py-4">
+                  <div className="flex items-center justify-between">
+                    <span className="text-gray-600 text-sm">Original Price</span>
+                    <span className="text-gray-800 font-bold">CHF {originalPrice.toFixed(2)}</span>
+                  </div>
+                  <div className="h-px bg-white/50" />
+                  <div className="flex items-center justify-between">
+                    <span className="text-gray-600 text-sm">Our fee (15%)</span>
+                    <span className="text-gray-800 font-bold">CHF {fee.toFixed(2)}</span>
+                  </div>
+                  <div className="h-px bg-white/50" />
+                  <div className="flex items-center justify-between">
+                    <span className="text-gray-700 text-sm font-semibold">Total</span>
+                    <span className="text-gray-900 font-bold text-base">CHF {total.toFixed(2)}</span>
+                  </div>
+                </div>
+
                 <Button onClick={() => setStep(3)} className="w-full h-11 rounded-xl bg-purple-500 hover:bg-purple-600 text-white">
-                  Continue
+                  Accept
                 </Button>
               </CardContent>
             </Card>
