@@ -13,7 +13,7 @@ export default function ImportPage() {
       <div className="flex flex-1 flex-col items-center justify-center px-4 pt-20">
         <div className="flex flex-col items-center gap-8 w-full max-w-md">
 
-          <Image src="/logo.png" alt="Logo" width={200} height={64} className="h-16 w-auto" />
+          <Image src="/logo.png" alt="Logo" width={200} height={64} className="h-16 w-auto" onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }} />
 
           <Input
             type="url"
