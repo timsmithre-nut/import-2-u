@@ -20,18 +20,6 @@ export default function DotGlobeHeroDemo() {
           transition={{ duration: 0.8 }}
           className="space-y-8"
         >
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="relative inline-flex items-center gap-3 px-6 py-3 rounded-full bg-gradient-to-r from-primary/20 via-primary/10 to-primary/20 border border-primary/30 backdrop-blur-xl shadow-2xl"
-          >
-            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary/10 via-transparent to-primary/10 animate-pulse" />
-            <div className="w-2 h-2 bg-primary rounded-full animate-ping" />
-            <span className="relative z-10 text-sm font-bold text-primary tracking-wider uppercase">GLOBAL NETWORK</span>
-            <div className="w-2 h-2 bg-primary rounded-full animate-ping animation-delay-500" />
-          </motion.div>
-
           <div className="space-y-6">
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
@@ -74,9 +62,6 @@ export default function DotGlobeHeroDemo() {
                 distributed network infrastructure
               </span>
             </p>
-            <p className="text-lg text-muted-foreground/80 leading-relaxed">
-              Monitor data flows, track performance, and scale across continents with unprecedented reliability.
-            </p>
           </motion.div>
         </motion.div>
         <motion.div
@@ -101,7 +86,7 @@ export default function DotGlobeHeroDemo() {
               whileHover={{ x: "100%" }}
               transition={{ duration: 0.8 }}
             />
-            <span className="relative z-10 tracking-wide">Start Exploring</span>
+            <span className="relative z-10 tracking-wide">Start Importing</span>
             <ArrowRight className="relative z-10 w-5 h-5 group-hover:translate-x-2 transition-transform duration-300" />
           </motion.button>
 
