@@ -8,7 +8,7 @@ export default function ImportPage() {
     <div className="min-h-screen w-full bg-gradient-to-br from-pink-300 via-purple-300 to-orange-200 flex flex-col items-center justify-center px-4">
       <div className="flex flex-col items-center gap-8 w-full max-w-md">
 
-        {/* LOGO HERE */}
+        <img src="/logo.png" alt="Logo" className="h-16 w-auto" />
 
         <Input
           type="url"
