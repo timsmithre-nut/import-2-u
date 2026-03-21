@@ -23,7 +23,7 @@ const PAYMENT_METHODS = [
 
 function Stepper({ current }: { current: StepIndex }) {
   return (
-    <div className="flex items-center w-full px-2 mb-6">
+    <div className="flex items-center w-full px-2 mb-8">
       {STEPS.map((label, i) => {
         const done    = i < current;
         const active  = i === current;
@@ -35,17 +35,17 @@ function Stepper({ current }: { current: StepIndex }) {
             <div className="flex flex-col items-center gap-1.5 shrink-0">
               <div
                 className={[
-                  "w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold transition-colors",
+                  "w-10 h-10 rounded-full flex items-center justify-center text-base font-semibold transition-colors",
                   done   ? "bg-purple-500 text-white"                     : "",
                   active ? "border-2 border-purple-500 text-purple-600 bg-white/60" : "",
                   !done && !active ? "border-2 border-gray-300 text-gray-400 bg-white/40" : "",
                 ].join(" ")}
               >
-                {done ? <Check className="w-4 h-4 stroke-[3]" /> : <span>{i + 1}</span>}
+                {done ? <Check className="w-5 h-5 stroke-[3]" /> : <span>{i + 1}</span>}
               </div>
               <span
                 className={[
-                  "text-[11px] font-medium leading-none",
+                  "text-xs font-medium leading-none",
                   active ? "text-purple-600" : done ? "text-purple-400" : "text-gray-400",
                 ].join(" ")}
               >
@@ -79,7 +79,7 @@ export default function ImportPage() {
       <ImportHeader />
 
       <div className="flex flex-1 flex-col items-center justify-center px-4 py-12">
-        <div className="flex flex-col items-center gap-6 w-full max-w-lg">
+        <div className="flex flex-col items-center gap-6 w-full max-w-2xl">
 
           <Image
             src="/logo.svg"
@@ -94,33 +94,33 @@ export default function ImportPage() {
           <div className="w-full bg-white/40 backdrop-blur-sm border border-white/50 rounded-2xl shadow-xl overflow-hidden">
 
             {/* card body */}
-            <div className="px-6 pt-6 pb-0">
+            <div className="px-10 pt-10 pb-0">
               <Stepper current={step} />
             </div>
 
             {/* ── Step 1: URL ── */}
             {step === 0 && (
-              <div className="px-6 pb-6 flex flex-col gap-4">
-                <h2 className="text-gray-800 font-semibold text-base">Enter the product URL</h2>
+              <div className="px-10 pb-10 flex flex-col gap-5">
+                <h2 className="text-gray-800 font-semibold text-lg">Enter the product URL</h2>
 
-                <div className="flex gap-2">
+                <div className="flex gap-3">
                   <Input
                     type="url"
                     placeholder="https://example.com/product"
                     value={url}
                     onChange={(e) => setUrl(e.target.value)}
                     onKeyDown={(e) => e.key === "Enter" && url.trim() && setStep(1)}
-                    className="flex-1 bg-white/70 border-white/60 rounded-xl h-11 px-4 text-sm placeholder:text-gray-400 focus-visible:ring-purple-400"
+                    className="flex-1 bg-white/70 border-white/60 rounded-xl h-12 px-4 text-base placeholder:text-gray-400 focus-visible:ring-purple-400"
                   />
                   <Button
                     onClick={() => url.trim() && setStep(1)}
-                    className="h-11 px-5 rounded-xl bg-purple-500 hover:bg-purple-600 text-white"
+                    className="h-12 px-6 rounded-xl bg-purple-500 hover:bg-purple-600 text-white text-base"
                   >
                     Continue
                   </Button>
                 </div>
 
-                <div className="bg-white/30 rounded-xl px-4 py-3 text-sm text-gray-600 leading-relaxed">
+                <div className="bg-white/30 rounded-xl px-5 py-4 text-base text-gray-600 leading-relaxed">
                   ⚠️ <span className="font-medium text-gray-700">Disclaimer:</span> You need to enter a valid product page. This webpage needs to be from a partner company.
                 </div>
               </div>
@@ -128,29 +128,29 @@ export default function ImportPage() {
 
             {/* ── Step 2: Price ── */}
             {step === 1 && (
-              <div className="px-6 pb-6 flex flex-col gap-4">
-                <h2 className="text-gray-800 font-semibold text-base text-center">Our Offer</h2>
+              <div className="px-10 pb-10 flex flex-col gap-5">
+                <h2 className="text-gray-800 font-semibold text-xl text-center">Our Offer</h2>
 
-                <div className="flex flex-col gap-3 bg-white/30 rounded-xl px-5 py-4">
+                <div className="flex flex-col gap-4 bg-white/30 rounded-xl px-6 py-5">
                   <div className="flex items-center justify-between">
-                    <span className="text-gray-600 text-sm">Original Price</span>
-                    <span className="text-gray-800 font-bold">CHF {originalPrice.toFixed(2)}</span>
+                    <span className="text-gray-600 text-base">Original Price</span>
+                    <span className="text-gray-800 font-bold text-base">CHF {originalPrice.toFixed(2)}</span>
                   </div>
                   <div className="h-px bg-white/60" />
                   <div className="flex items-center justify-between">
-                    <span className="text-gray-600 text-sm">Our fee (15%)</span>
-                    <span className="text-gray-800 font-bold">CHF {fee.toFixed(2)}</span>
+                    <span className="text-gray-600 text-base">Our fee (15%)</span>
+                    <span className="text-gray-800 font-bold text-base">CHF {fee.toFixed(2)}</span>
                   </div>
                   <div className="h-px bg-white/60" />
                   <div className="flex items-center justify-between">
-                    <span className="text-gray-700 text-sm font-semibold">Total</span>
-                    <span className="text-gray-900 font-bold text-base">CHF {total.toFixed(2)}</span>
+                    <span className="text-gray-700 text-base font-semibold">Total</span>
+                    <span className="text-gray-900 font-bold text-lg">CHF {total.toFixed(2)}</span>
                   </div>
                 </div>
 
                 <Button
                   onClick={() => setStep(2)}
-                  className="w-full h-11 rounded-xl bg-purple-500 hover:bg-purple-600 text-white"
+                  className="w-full h-12 rounded-xl bg-purple-500 hover:bg-purple-600 text-white text-base"
                 >
                   Accept
                 </Button>
@@ -159,46 +159,46 @@ export default function ImportPage() {
 
             {/* ── Step 3: Info ── */}
             {step === 2 && (
-              <div className="px-6 pb-6 flex flex-col gap-4">
-                <h2 className="text-gray-800 font-semibold text-base">Your details</h2>
+              <div className="px-10 pb-10 flex flex-col gap-5">
+                <h2 className="text-gray-800 font-semibold text-lg">Your details</h2>
 
-                <div className="flex flex-col gap-3">
-                  <div className="flex gap-3">
-                    <div className="flex flex-col gap-1.5 flex-1">
-                      <label className="text-gray-700 text-xs font-medium">First Name</label>
-                      <Input className="bg-white/70 border-white/60 rounded-lg h-10 text-sm focus-visible:ring-purple-400" placeholder="Jane" />
+                <div className="flex flex-col gap-4">
+                  <div className="flex gap-4">
+                    <div className="flex flex-col gap-2 flex-1">
+                      <label className="text-gray-700 text-sm font-medium">First Name</label>
+                      <Input className="bg-white/70 border-white/60 rounded-lg h-11 text-base focus-visible:ring-purple-400" placeholder="Jane" />
                     </div>
-                    <div className="flex flex-col gap-1.5 flex-1">
-                      <label className="text-gray-700 text-xs font-medium">Last Name</label>
-                      <Input className="bg-white/70 border-white/60 rounded-lg h-10 text-sm focus-visible:ring-purple-400" placeholder="Smith" />
-                    </div>
-                  </div>
-
-                  <div className="flex flex-col gap-1.5">
-                    <label className="text-gray-700 text-xs font-medium">Email</label>
-                    <Input type="email" className="bg-white/70 border-white/60 rounded-lg h-10 text-sm focus-visible:ring-purple-400" placeholder="jane@example.com" />
-                  </div>
-
-                  <div className="flex gap-3">
-                    <div className="flex flex-col gap-1.5 w-28">
-                      <label className="text-gray-700 text-xs font-medium">Postcode</label>
-                      <Input className="bg-white/70 border-white/60 rounded-lg h-10 text-sm focus-visible:ring-purple-400" placeholder="SW1A 1AA" />
-                    </div>
-                    <div className="flex flex-col gap-1.5 flex-1">
-                      <label className="text-gray-700 text-xs font-medium">Country</label>
-                      <Input className="bg-white/70 border-white/60 rounded-lg h-10 text-sm focus-visible:ring-purple-400" placeholder="United Kingdom" />
+                    <div className="flex flex-col gap-2 flex-1">
+                      <label className="text-gray-700 text-sm font-medium">Last Name</label>
+                      <Input className="bg-white/70 border-white/60 rounded-lg h-11 text-base focus-visible:ring-purple-400" placeholder="Smith" />
                     </div>
                   </div>
 
-                  <div className="flex flex-col gap-1.5">
-                    <label className="text-gray-700 text-xs font-medium">Address</label>
-                    <Input className="bg-white/70 border-white/60 rounded-lg h-10 text-sm focus-visible:ring-purple-400" placeholder="123 Example Street" />
+                  <div className="flex flex-col gap-2">
+                    <label className="text-gray-700 text-sm font-medium">Email</label>
+                    <Input type="email" className="bg-white/70 border-white/60 rounded-lg h-11 text-base focus-visible:ring-purple-400" placeholder="jane@example.com" />
+                  </div>
+
+                  <div className="flex gap-4">
+                    <div className="flex flex-col gap-2 w-36">
+                      <label className="text-gray-700 text-sm font-medium">Postcode</label>
+                      <Input className="bg-white/70 border-white/60 rounded-lg h-11 text-base focus-visible:ring-purple-400" placeholder="SW1A 1AA" />
+                    </div>
+                    <div className="flex flex-col gap-2 flex-1">
+                      <label className="text-gray-700 text-sm font-medium">Country</label>
+                      <Input className="bg-white/70 border-white/60 rounded-lg h-11 text-base focus-visible:ring-purple-400" placeholder="United Kingdom" />
+                    </div>
+                  </div>
+
+                  <div className="flex flex-col gap-2">
+                    <label className="text-gray-700 text-sm font-medium">Address</label>
+                    <Input className="bg-white/70 border-white/60 rounded-lg h-11 text-base focus-visible:ring-purple-400" placeholder="123 Example Street" />
                   </div>
                 </div>
 
                 <Button
                   onClick={() => setStep(3)}
-                  className="w-full h-11 rounded-xl bg-purple-500 hover:bg-purple-600 text-white"
+                  className="w-full h-12 rounded-xl bg-purple-500 hover:bg-purple-600 text-white text-base"
                 >
                   Confirm
                 </Button>
@@ -208,26 +208,26 @@ export default function ImportPage() {
             {/* ── Step 4: Import ── */}
             {step === 3 && (
               <div className="flex flex-col">
-                <div className="px-6 pb-5 flex flex-col gap-4">
-                  <h2 className="text-gray-800 font-semibold text-base text-center">Add payment method</h2>
+                <div className="px-10 pb-6 flex flex-col gap-5">
+                  <h2 className="text-gray-800 font-semibold text-lg text-center">Add payment method</h2>
 
-                  <div className="grid grid-cols-4 gap-2">
+                  <div className="grid grid-cols-4 gap-3">
                     {PAYMENT_METHODS.map(({ label, bg, text, font }) => (
                       <button
                         key={label}
-                        className={`${bg} ${text} ${font} rounded-xl h-14 flex items-center justify-center text-[11px] text-center px-1 leading-tight shadow-sm hover:opacity-90 active:scale-95 transition-all`}
+                        className={`${bg} ${text} ${font} rounded-xl h-16 flex items-center justify-center text-sm text-center px-2 leading-tight shadow-sm hover:opacity-90 active:scale-95 transition-all`}
                       >
                         {label}
                       </button>
                     ))}
                   </div>
 
-                  <Button className="w-full h-11 rounded-xl bg-purple-500 hover:bg-purple-600 text-white">
+                  <Button className="w-full h-12 rounded-xl bg-purple-500 hover:bg-purple-600 text-white text-base">
                     Pay
                   </Button>
                 </div>
 
-                <div className="bg-red-600 py-3 px-5 text-white text-sm font-medium text-center">
+                <div className="bg-red-600 py-4 px-5 text-white text-base font-medium text-center">
                   We do not offer Refunds
                 </div>
               </div>
