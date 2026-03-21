@@ -9,7 +9,7 @@ export default function DotGlobeHeroDemo() {
   return (
     <DotGlobeHero
       rotationSpeed={0.004}
-      className="bg-gradient-to-br from-background via-background/95 to-muted/10 relative overflow-hidden"
+      className="bg-gradient-to-br from-pink-300 via-purple-300 to-orange-200 relative overflow-hidden"
     >
       <div className="absolute inset-0 bg-gradient-to-t from-background/50 via-transparent to-background/30" />
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-pulse" />
