@@ -88,7 +88,7 @@ function ImportHeader() {
         <div className="flex lg:justify-center">
           <Link href="/">
             <Image
-              src="/logo.svg"
+              src="/logo.png"
               alt="Logo"
               width={160}
               height={52}
@@ -104,7 +104,7 @@ function ImportHeader() {
           <Button variant="outline" className="hidden md:inline-flex bg-white/40 border-white/50 text-gray-800 hover:bg-white/60">
             Sign up
           </Button>
-          <Button className="bg-purple-500 hover:bg-purple-600 text-white">
+          <Button className="text-white" style={{backgroundColor:"#f01e2c"}} onMouseEnter={e=>(e.currentTarget.style.backgroundColor="#c8121f")} onMouseLeave={e=>(e.currentTarget.style.backgroundColor="#f01e2c")}>
             Account
           </Button>
         </div>
