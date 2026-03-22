@@ -90,8 +90,8 @@ function ImportHeader() {
             <Image
               src="/Logo.svg"
               alt="Logo"
-              width={160}
-              height={52}
+              width={500}
+              height={200}
               className="h-13 w-auto object-contain"
               priority
               onError={(e) => { (e.target as HTMLImageElement).style.display = "none"; }}
