@@ -35,8 +35,8 @@ function Stepper({ current }: { current: StepIndex }) {
               <div
                 className={[
                   "w-10 h-10 rounded-full flex items-center justify-center text-base font-semibold transition-colors",
-                  done   ? "bg-purple-500 text-white"                     : "",
-                  active ? "border-2 border-purple-500 text-purple-600 bg-white/60" : "",
+                  done   ? "bg-[#f01e2c] text-white"                     : "",
+                  active ? "border-2 border-[#f01e2c] text-[#f01e2c] bg-white/60" : "",
                   !done && !active ? "border-2 border-gray-300 text-gray-400 bg-white/40" : "",
                 ].join(" ")}
               >
@@ -45,7 +45,7 @@ function Stepper({ current }: { current: StepIndex }) {
               <span
                 className={[
                   "text-xs font-medium leading-none",
-                  active ? "text-purple-600" : done ? "text-purple-400" : "text-gray-400",
+                  active ? "text-[#f01e2c]" : done ? "text-[#f01e2c]/70" : "text-gray-400",
                 ].join(" ")}
               >
                 {label}
@@ -55,7 +55,7 @@ function Stepper({ current }: { current: StepIndex }) {
             {/* connector line */}
             {!last && (
               <div className="flex-1 mx-2 mb-4">
-                <div className={["h-0.5 w-full rounded-full transition-colors", i < current ? "bg-purple-400" : "bg-gray-200"].join(" ")} />
+                <div className={["h-0.5 w-full rounded-full transition-colors", i < current ? "bg-[#f01e2c]/70" : "bg-gray-200"].join(" ")} />
               </div>
             )}
           </div>
@@ -100,11 +100,11 @@ export default function ImportPage() {
                     value={url}
                     onChange={(e) => setUrl(e.target.value)}
                     onKeyDown={(e) => e.key === "Enter" && url.trim() && setStep(1)}
-                    className="flex-1 bg-white/70 border-white/60 rounded-xl h-12 px-4 text-base placeholder:text-gray-400 focus-visible:ring-purple-400"
+                    className="flex-1 bg-white/70 border-white/60 rounded-xl h-12 px-4 text-base placeholder:text-gray-400 focus-visible:ring-[#f01e2c]"
                   />
                   <Button
                     onClick={() => url.trim() && setStep(1)}
-                    className="h-12 px-6 rounded-xl bg-purple-500 hover:bg-purple-600 text-white text-base"
+                    className="h-12 px-6 rounded-xl bg-[#f01e2c] hover:bg-[#c8121f] text-white text-base"
                   >
                     Continue
                   </Button>
@@ -140,7 +140,7 @@ export default function ImportPage() {
 
                 <Button
                   onClick={() => setStep(2)}
-                  className="w-full h-12 rounded-xl bg-purple-500 hover:bg-purple-600 text-white text-base"
+                  className="w-full h-12 rounded-xl bg-[#f01e2c] hover:bg-[#c8121f] text-white text-base"
                 >
                   Accept
                 </Button>
@@ -156,39 +156,39 @@ export default function ImportPage() {
                   <div className="flex gap-4">
                     <div className="flex flex-col gap-2 flex-1">
                       <label className="text-gray-700 text-sm font-medium">First Name</label>
-                      <Input className="bg-white/70 border-white/60 rounded-lg h-11 text-base focus-visible:ring-purple-400" placeholder="Jane" />
+                      <Input className="bg-white/70 border-white/60 rounded-lg h-11 text-base focus-visible:ring-[#f01e2c]" placeholder="Jane" />
                     </div>
                     <div className="flex flex-col gap-2 flex-1">
                       <label className="text-gray-700 text-sm font-medium">Last Name</label>
-                      <Input className="bg-white/70 border-white/60 rounded-lg h-11 text-base focus-visible:ring-purple-400" placeholder="Smith" />
+                      <Input className="bg-white/70 border-white/60 rounded-lg h-11 text-base focus-visible:ring-[#f01e2c]" placeholder="Smith" />
                     </div>
                   </div>
 
                   <div className="flex flex-col gap-2">
                     <label className="text-gray-700 text-sm font-medium">Email</label>
-                    <Input type="email" className="bg-white/70 border-white/60 rounded-lg h-11 text-base focus-visible:ring-purple-400" placeholder="jane@example.com" />
+                    <Input type="email" className="bg-white/70 border-white/60 rounded-lg h-11 text-base focus-visible:ring-[#f01e2c]" placeholder="jane@example.com" />
                   </div>
 
                   <div className="flex gap-4">
                     <div className="flex flex-col gap-2 w-36">
                       <label className="text-gray-700 text-sm font-medium">Postcode</label>
-                      <Input className="bg-white/70 border-white/60 rounded-lg h-11 text-base focus-visible:ring-purple-400" placeholder="SW1A 1AA" />
+                      <Input className="bg-white/70 border-white/60 rounded-lg h-11 text-base focus-visible:ring-[#f01e2c]" placeholder="SW1A 1AA" />
                     </div>
                     <div className="flex flex-col gap-2 flex-1">
                       <label className="text-gray-700 text-sm font-medium">Country</label>
-                      <Input className="bg-white/70 border-white/60 rounded-lg h-11 text-base focus-visible:ring-purple-400" placeholder="United Kingdom" />
+                      <Input className="bg-white/70 border-white/60 rounded-lg h-11 text-base focus-visible:ring-[#f01e2c]" placeholder="United Kingdom" />
                     </div>
                   </div>
 
                   <div className="flex flex-col gap-2">
                     <label className="text-gray-700 text-sm font-medium">Address</label>
-                    <Input className="bg-white/70 border-white/60 rounded-lg h-11 text-base focus-visible:ring-purple-400" placeholder="123 Example Street" />
+                    <Input className="bg-white/70 border-white/60 rounded-lg h-11 text-base focus-visible:ring-[#f01e2c]" placeholder="123 Example Street" />
                   </div>
                 </div>
 
                 <Button
                   onClick={() => setStep(3)}
-                  className="w-full h-12 rounded-xl bg-purple-500 hover:bg-purple-600 text-white text-base"
+                  className="w-full h-12 rounded-xl bg-[#f01e2c] hover:bg-[#c8121f] text-white text-base"
                 >
                   Confirm
                 </Button>
@@ -212,7 +212,7 @@ export default function ImportPage() {
                     ))}
                   </div>
 
-                  <Button className="w-full h-12 rounded-xl bg-purple-500 hover:bg-purple-600 text-white text-base">
+                  <Button className="w-full h-12 rounded-xl bg-[#f01e2c] hover:bg-[#c8121f] text-white text-base">
                     Pay
                   </Button>
                 </div>
