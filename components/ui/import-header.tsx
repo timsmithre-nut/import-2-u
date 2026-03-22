@@ -88,7 +88,7 @@ function ImportHeader() {
         <div className="flex lg:justify-center">
           <Link href="/">
             <Image
-              src="/logo.png"
+              src="/Logo.svg"
               alt="Logo"
               width={160}
               height={52}
