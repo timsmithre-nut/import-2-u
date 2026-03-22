@@ -15,7 +15,7 @@ const logos = [
 
 export default function Home() {
   return (
-    <div className="min-h-screen w-full bg-gradient-to-br from-pink-300 via-purple-300 to-orange-200">
+    <div className="min-h-screen w-full bg-gradient-to-br from-white via-red-100 to-red-400">
       <ImportHeader />
       <DotGlobeHeroDemo />
 

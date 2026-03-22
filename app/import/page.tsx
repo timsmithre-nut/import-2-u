@@ -74,7 +74,7 @@ export default function ImportPage() {
   const total = parseFloat((originalPrice + fee).toFixed(2));
 
   return (
-    <div className="min-h-screen w-full bg-gradient-to-br from-pink-300 via-purple-300 to-orange-200 flex flex-col">
+    <div className="min-h-screen w-full bg-gradient-to-br from-white via-red-100 to-red-400 flex flex-col">
       <ImportHeader />
 
       <div className="flex flex-1 flex-col items-center justify-center px-4 py-6">
