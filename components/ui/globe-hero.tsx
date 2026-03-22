@@ -27,7 +27,7 @@ const Globe: React.FC<{
       <mesh>
         <sphereGeometry args={[radius, 64, 64]} />
         <meshBasicMaterial
-          color="#000000"
+          color="#f01e2c"
           transparent
           opacity={0.15}
           wireframe
