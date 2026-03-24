@@ -76,7 +76,7 @@ export const TestimonialsColumn = (props: {
           ease: "linear",
           repeatType: "loop",
         }}
-        className="flex flex-col gap-6 pb-6 bg-background"
+        className="flex flex-col gap-6 pb-6"
       >
         {[
           ...new Array(2).fill(0).map((_, index) => (
@@ -116,7 +116,7 @@ const thirdColumn = testimonials.slice(6, 9);
 
 export const Testimonials = () => {
   return (
-    <section className="bg-background my-20 relative">
+    <section className="my-20 relative">
       <div className="container z-10 mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
