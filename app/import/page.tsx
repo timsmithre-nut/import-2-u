@@ -10,14 +10,14 @@ const STEPS = ["URL", "Price", "Info", "Import"] as const;
 type StepIndex = 0 | 1 | 2 | 3;
 
 const PAYMENT_METHODS = [
-  { label: "PayPal",      bg: "bg-[#003087]", text: "text-[#009cde]", font: "font-extrabold italic" },
-  { label: "Mastercard",  bg: "bg-[#eb001b]", text: "text-white",      font: "font-bold" },
-  { label: "Visa",        bg: "bg-[#1a1f71]", text: "text-white",      font: "font-extrabold italic" },
-  { label: "Maestro",     bg: "bg-[#0099df]", text: "text-white",      font: "font-bold" },
-  { label: "Apple Pay",   bg: "bg-black",      text: "text-white",      font: "font-semibold" },
-  { label: "Amazon Pay",  bg: "bg-[#ff9900]", text: "text-[#232f3e]",  font: "font-bold" },
-  { label: "Google Pay",  bg: "bg-white",      text: "text-gray-700",   font: "font-semibold" },
-  { label: "Stripe",      bg: "bg-[#635bff]", text: "text-white",      font: "font-bold" },
+  { label: "PayPal",      bg: "bg-[#003087]", src: "/paypal-svgrepo-com.svg" },
+  { label: "Mastercard",  bg: "bg-[#eb001b]", src: "/mastercard-full-svgrepo-com.svg" },
+  { label: "Visa",        bg: "bg-[#1a1f71]", src: "/visa-3-svgrepo-com.svg" },
+  { label: "Maestro",     bg: "bg-[#0099df]", src: "/maestro-svgrepo-com.svg" },
+  { label: "Apple Pay",   bg: "bg-black",      src: "/apple-pay-svgrepo-com.svg" },
+  { label: "Amazon Pay",  bg: "bg-[#ff9900]", src: "/amazon-pay-svgrepo-com.svg" },
+  { label: "Google Pay",  bg: "bg-white",      src: "/google-pay-svgrepo-com.svg" },
+  { label: "Stripe",      bg: "bg-[#635bff]", src: "/stripe-svgrepo-com.svg" },
 ];
 
 function Stepper({ current }: { current: StepIndex }) {
@@ -202,12 +202,12 @@ export default function ImportPage() {
                   <h2 className="text-gray-800 font-semibold text-lg text-center">Add payment method</h2>
 
                   <div className="grid grid-cols-4 gap-3">
-                    {PAYMENT_METHODS.map(({ label, bg, text, font }) => (
+                    {PAYMENT_METHODS.map(({ label, bg, src }) => (
                       <button
                         key={label}
-                        className={`${bg} ${text} ${font} rounded-xl h-16 flex items-center justify-center text-sm text-center px-2 leading-tight shadow-sm hover:opacity-90 active:scale-95 transition-all`}
+                        className={`${bg} rounded-xl h-16 flex items-center justify-center px-2 shadow-sm hover:opacity-90 active:scale-95 transition-all`}
                       >
-                        {label}
+                        <img src={src} alt={label} className="h-8 w-auto object-contain" />
                       </button>
                     ))}
                   </div>
