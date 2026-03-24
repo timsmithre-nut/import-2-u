@@ -1,64 +1,62 @@
 "use client";
 import React from "react";
 import { motion } from "motion/react";
-
 const testimonials = [
   {
-    text: "This ERP revolutionized our operations, streamlining finance and inventory. The cloud-based platform keeps us productive, even remotely.",
+    text: "I used to drive to Germany every month to pick up packages — Import 2 MW changed everything, my orders just arrive at my door.",
     image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop&crop=face",
     name: "Briana Patton",
-    role: "Operations Manager",
+    role: "Regular Shopper",
   },
   {
-    text: "Implementing this ERP was smooth and quick. The customizable, user-friendly interface made team training effortless.",
+    text: "Finally I can order from UK stores without worrying about customs paperwork — Import 2 MW handles it all seamlessly.",
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=face",
     name: "Bilal Ahmed",
-    role: "IT Manager",
+    role: "Tech Enthusiast",
   },
   {
-    text: "The support team is exceptional, guiding us through setup and providing ongoing assistance, ensuring our satisfaction.",
+    text: "I ordered specialty coffee from Italy and it arrived in Zürich within days, completely hassle-free thanks to Import 2 MW.",
     image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop&crop=face",
     name: "Saman Malik",
-    role: "Customer Support Lead",
+    role: "Food Lover",
   },
   {
-    text: "This ERP's seamless integration enhanced our business operations and efficiency. Highly recommend for its intuitive interface.",
+    text: "No more border runs on weekends — Import 2 MW saves me hours every month and the pricing is totally transparent.",
     image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&h=80&fit=crop&crop=face",
     name: "Omar Raza",
-    role: "CEO",
+    role: "Busy Professional",
   },
   {
-    text: "Its robust features and quick support have transformed our workflow, making us significantly more efficient.",
+    text: "I run a small boutique and Import 2 MW lets me source unique products from abroad without ever leaving Switzerland.",
     image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=80&h=80&fit=crop&crop=face",
     name: "Zainab Hussain",
-    role: "Project Manager",
+    role: "Boutique Owner",
   },
   {
-    text: "The smooth implementation exceeded expectations. It streamlined processes, improving overall business performance.",
+    text: "Ordering limited-edition sneakers from abroad used to be a nightmare — Import 2 MW made it as easy as any local purchase.",
     image: "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=80&h=80&fit=crop&crop=face",
     name: "Aliza Khan",
-    role: "Business Analyst",
+    role: "Sneaker Collector",
   },
   {
-    text: "Our business functions improved with a user-friendly design and positive customer feedback.",
+    text: "The customs fees are always clearly shown upfront, so I never get any surprise charges when my package arrives.",
     image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=80&h=80&fit=crop&crop=face",
     name: "Farhan Siddiqui",
-    role: "Marketing Director",
+    role: "Online Shopper",
   },
   {
-    text: "They delivered a solution that exceeded expectations, understanding our needs and enhancing our operations.",
+    text: "I imported a vintage guitar from the US and the whole process was smooth, tracked, and stress-free from start to finish.",
     image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=80&h=80&fit=crop&crop=face",
     name: "Sana Sheikh",
-    role: "Sales Manager",
+    role: "Music Hobbyist",
   },
   {
-    text: "Using this ERP, our online presence and conversions significantly improved, boosting business performance.",
+    text: "Import 2 MW is the reason I can now shop any European website like a local — it's genuinely transformed how I buy things.",
     image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=80&h=80&fit=crop&crop=face",
     name: "Hassan Ali",
-    role: "E-commerce Manager",
+    role: "Expat in Basel",
   },
 ];
-
 export const TestimonialsColumn = (props: {
   className?: string;
   testimonials: typeof testimonials;
