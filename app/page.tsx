@@ -1,6 +1,7 @@
 import DotGlobeHeroDemo from "@/components/ui/globe-hero-demo";
 import { ImportHeader } from "@/components/ui/import-header";
 import { LogoCloud } from "@/components/ui/logo-cloud-3";
+import { Testimonials } from "@/components/ui/testimonials-columns-1";
 
 const logos = [
   { src: "https://svgl.app/library/nvidia-wordmark-light.svg",       alt: "Nvidia Logo" },
@@ -29,6 +30,8 @@ export default function Home() {
         <LogoCloud logos={logos} />
         <div className="mt-5 h-px bg-gray-400/40 [mask-image:linear-gradient(to_right,transparent,black,transparent)]" />
       </section>
+
+      <Testimonials />
     </div>
   );
 }
