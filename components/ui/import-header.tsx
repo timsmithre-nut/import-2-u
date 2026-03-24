@@ -53,10 +53,8 @@ function ImportHeader() {
                     <NavigationMenuLink href={item.href!}>
                       <Button variant="ghost" className="text-gray-800 hover:bg-white/30">{item.title}</Button>
                     </NavigationMenuLink>
-                  ) : item.href ? (
-                    <Button variant="ghost" disabled className="text-gray-400 cursor-default opacity-50">{item.title}</Button>
                   ) : (
-                    <Button variant="ghost" disabled className="text-gray-400 cursor-default opacity-50">{item.title}</Button>
+                    <span className="text-sm font-medium text-gray-400 opacity-50 px-4 py-2 pointer-events-none select-none">{item.title}</span>
                   )}
                 </NavigationMenuItem>
               ))}
@@ -81,12 +79,12 @@ function ImportHeader() {
 
         {/* Right: Sign up + Account */}
         <div className="flex justify-end w-full gap-3">
-          <Button variant="outline" disabled className="hidden md:inline-flex bg-white/40 border-white/50 text-gray-400 opacity-50 cursor-default">
+          <span className="hidden md:inline-flex items-center px-4 py-2 rounded-md border border-white/50 bg-white/40 text-gray-400 text-sm font-medium opacity-50 pointer-events-none select-none">
             Sign up
-          </Button>
-          <Button disabled className="text-white opacity-50 cursor-default" style={{backgroundColor:"#f01e2c"}}>
+          </span>
+          <span className="inline-flex items-center px-4 py-2 rounded-md text-white text-sm font-medium opacity-50 pointer-events-none select-none" style={{backgroundColor:"#f01e2c"}}>
             Account
-          </Button>
+          </span>
         </div>
 
         {/* Mobile hamburger */}
