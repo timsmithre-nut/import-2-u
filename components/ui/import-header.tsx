@@ -49,34 +49,14 @@ function ImportHeader() {
             <NavigationMenuList className="flex justify-start gap-4 flex-row">
               {navigationItems.map((item) => (
                 <NavigationMenuItem key={item.title}>
-                  {item.href ? (
-                    <NavigationMenuLink href={item.href}>
+                  {item.title === "Home" ? (
+                    <NavigationMenuLink href={item.href!}>
                       <Button variant="ghost" className="text-gray-800 hover:bg-white/30">{item.title}</Button>
                     </NavigationMenuLink>
+                  ) : item.href ? (
+                    <Button variant="ghost" disabled className="text-gray-400 cursor-default opacity-50">{item.title}</Button>
                   ) : (
-                    <>
-                      <NavigationMenuTrigger className="font-medium text-sm text-gray-800 bg-transparent hover:bg-white/30 data-[state=open]:bg-white/30">
-                        {item.title}
-                      </NavigationMenuTrigger>
-                      <NavigationMenuContent className="!w-[320px] p-4">
-                        <div className="flex flex-col gap-2">
-                          <p className="text-base font-medium">{item.title}</p>
-                          <p className="text-muted-foreground text-sm mb-2">{item.description}</p>
-                          <div className="flex flex-col text-sm">
-                            {item.items?.map((subItem) => (
-                              <NavigationMenuLink
-                                href={subItem.href}
-                                key={subItem.title}
-                                className="flex flex-row justify-between items-center hover:bg-muted py-2 px-4 rounded"
-                              >
-                                <span>{subItem.title}</span>
-                                <MoveRight className="w-4 h-4 text-muted-foreground" />
-                              </NavigationMenuLink>
-                            ))}
-                          </div>
-                        </div>
-                      </NavigationMenuContent>
-                    </>
+                    <Button variant="ghost" disabled className="text-gray-400 cursor-default opacity-50">{item.title}</Button>
                   )}
                 </NavigationMenuItem>
               ))}
@@ -101,10 +81,10 @@ function ImportHeader() {
 
         {/* Right: Sign up + Account */}
         <div className="flex justify-end w-full gap-3">
-          <Button variant="outline" className="hidden md:inline-flex bg-white/40 border-white/50 text-gray-800 hover:bg-white/60">
+          <Button variant="outline" disabled className="hidden md:inline-flex bg-white/40 border-white/50 text-gray-400 opacity-50 cursor-default">
             Sign up
           </Button>
-          <Button className="text-white" style={{backgroundColor:"#f01e2c"}} onMouseEnter={e=>(e.currentTarget.style.backgroundColor="#c8121f")} onMouseLeave={e=>(e.currentTarget.style.backgroundColor="#f01e2c")}>
+          <Button disabled className="text-white opacity-50 cursor-default" style={{backgroundColor:"#f01e2c"}}>
             Account
           </Button>
         </div>
@@ -119,9 +99,9 @@ function ImportHeader() {
               {navigationItems.map((item) => (
                 <div key={item.title}>
                   <div className="flex flex-col gap-2">
-                    {item.href ? (
+                    {item.title === "Home" ? (
                       <Link
-                        href={item.href}
+                        href={item.href!}
                         className="flex justify-between items-center"
                         onClick={() => setOpen(false)}
                       >
@@ -129,19 +109,8 @@ function ImportHeader() {
                         <MoveRight className="w-4 h-4 stroke-1 text-muted-foreground" />
                       </Link>
                     ) : (
-                      <p className="text-lg text-gray-800">{item.title}</p>
+                      <p className="text-lg text-gray-400 opacity-50">{item.title}</p>
                     )}
-                    {item.items?.map((subItem) => (
-                      <Link
-                        key={subItem.title}
-                        href={subItem.href}
-                        className="flex justify-between items-center"
-                        onClick={() => setOpen(false)}
-                      >
-                        <span className="text-muted-foreground">{subItem.title}</span>
-                        <MoveRight className="w-4 h-4 stroke-1" />
-                      </Link>
-                    ))}
                   </div>
                 </div>
               ))}
