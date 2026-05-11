@@ -19,31 +19,33 @@ export default function DotGlobeHeroDemo() {
           transition={{ duration: 0.8 }}
           className="space-y-8"
         >
-          <div className="space-y-6">
+          <div className="space-y-8">
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.3 }}
-              className="text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-black tracking-normal leading-[0.85] text-white select-none drop-shadow-2xl"
+              className="text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-black tracking-normal leading-[0.9] text-white select-none drop-shadow-2xl"
               style={{ fontFamily: 'Inter, system-ui, sans-serif' }}
             >
-              <span className="block font-light text-white/80 mb-3 text-4xl md:text-6xl lg:text-7xl">
-                Import
+              <span className="block font-medium text-white/85 text-3xl md:text-5xl lg:text-6xl">
+                They don&apos;t ship to Switzerland.
               </span>
-              <span className="block relative">
-                <span className="relative z-10 bg-gradient-to-br from-white via-white to-white/70 bg-clip-text font-black text-transparent">
-                  Anything
-                </span>
-                <div className="absolute inset-0 scale-105 bg-gradient-to-br from-white via-white to-white/70 bg-clip-text font-black text-transparent opacity-50 blur-2xl"
-                     style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
-                  Anything
-                </div>
-                <motion.div
+              <span className="relative my-5 block h-3 md:my-7">
+                <motion.span
                   initial={{ width: 0 }}
                   animate={{ width: "100%" }}
                   transition={{ duration: 1.5, delay: 1.2, ease: "easeOut" }}
-                  className="absolute -bottom-6 left-0 h-3 rounded-full bg-gradient-to-r from-[#f01e2c] via-[#f01e2c]/80 to-transparent shadow-lg shadow-black/30"
+                  className="absolute left-0 top-1/2 h-3 -translate-y-1/2 rounded-full bg-gradient-to-r from-[#f01e2c] via-[#f01e2c]/80 to-transparent shadow-lg shadow-black/30"
                 />
+              </span>
+              <span className="block relative">
+                <span className="relative z-10 bg-gradient-to-br from-white via-white to-white/70 bg-clip-text font-black text-transparent">
+                  WE DO.
+                </span>
+                <div className="absolute inset-0 scale-105 bg-gradient-to-br from-white via-white to-white/70 bg-clip-text font-black text-transparent opacity-50 blur-2xl"
+                     style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
+                  WE DO.
+                </div>
               </span>
             </motion.h1>
           </div>
@@ -56,10 +58,7 @@ export default function DotGlobeHeroDemo() {
           >
             <p className="text-xl md:text-2xl text-white/85 leading-relaxed font-medium drop-shadow-lg"
                style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
-              Bring your favourite products from abroad straight to your door in Switzerland{" "}
-              <span className="rounded-md bg-white/14 px-2 py-1 font-semibold text-white backdrop-blur-sm">
-                fast, easy, and hassle-free
-              </span>
+              Gymshark. YoungLA. Alphalete. Delivered to your Swiss address, all duties included, no surprises.
             </p>
           </motion.div>
         </motion.div>

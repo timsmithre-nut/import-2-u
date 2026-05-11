@@ -36,11 +36,34 @@ const navigationItems = [
   },
 ];
 
-function ImportHeader() {
+function ImportHeader({ variant = "cinematic" }: { variant?: "cinematic" | "soft" }) {
   const [isOpen, setOpen] = useState(false);
+  const isSoft = variant === "soft";
+  const headerClass =
+    isSoft
+      ? "w-full z-40 fixed top-0 left-0 border-b border-white/[0.35] bg-white/[0.72] shadow-[0_12px_34px_rgba(154,38,50,0.08)] backdrop-blur-[16px]"
+      : "w-full z-40 fixed top-0 left-0 border-b border-white/[0.06] bg-[rgba(15,15,15,0.75)] shadow-[0_10px_30px_rgba(0,0,0,0.18)] backdrop-blur-[14px]";
+  const activeLinkClass = isSoft
+    ? "text-gray-900 transition-colors hover:bg-white/60 hover:text-[#f01e2c]"
+    : "text-[#F5F5F5] transition-colors hover:bg-white/10 hover:text-white";
+  const mutedLinkClass = isSoft
+    ? "text-sm font-medium text-gray-500 opacity-80 px-4 py-2 pointer-events-none select-none"
+    : "text-sm font-medium text-[#A1A1AA] opacity-70 px-4 py-2 pointer-events-none select-none";
+  const signUpClass = isSoft
+    ? "hidden md:inline-flex items-center px-4 py-2 rounded-md border border-white/70 bg-white/45 text-gray-600 text-sm font-medium opacity-90 pointer-events-none select-none shadow-sm"
+    : "hidden md:inline-flex items-center px-4 py-2 rounded-md border border-white/12 bg-white/[0.06] text-[#A1A1AA] text-sm font-medium opacity-80 pointer-events-none select-none";
+  const menuButtonClass = isSoft
+    ? "text-gray-900 hover:bg-white/60 hover:text-[#f01e2c]"
+    : "text-[#F5F5F5] hover:bg-white/10 hover:text-white";
+  const mobileMenuClass = isSoft
+    ? "absolute top-20 border-t border-white/[0.35] flex flex-col w-full right-0 bg-white/[0.86] shadow-lg backdrop-blur-[16px] py-4 container gap-6"
+    : "absolute top-20 border-t border-white/[0.06] flex flex-col w-full right-0 bg-[rgba(15,15,15,0.92)] shadow-lg backdrop-blur-[14px] py-4 container gap-6";
+  const mobileActiveClass = isSoft ? "text-lg text-gray-900" : "text-lg text-[#F5F5F5]";
+  const mobileMutedClass = isSoft ? "text-lg text-gray-500 opacity-80" : "text-lg text-[#A1A1AA] opacity-70";
+  const mobileIconClass = isSoft ? "w-4 h-4 stroke-1 text-gray-500" : "w-4 h-4 stroke-1 text-[#A1A1AA]";
 
   return (
-    <header className="w-full z-40 fixed top-0 left-0 bg-white/30 backdrop-blur-md border-b border-white/20">
+    <header className={headerClass}>
       <div className="container relative mx-auto min-h-20 flex gap-4 flex-row lg:grid lg:grid-cols-3 items-center">
 
         {/* Left: nav links */}
@@ -51,10 +74,10 @@ function ImportHeader() {
                 <NavigationMenuItem key={item.title}>
                   {item.title === "Home" ? (
                     <NavigationMenuLink href={item.href!}>
-                      <Button variant="ghost" className="text-gray-800 hover:bg-white/30">{item.title}</Button>
+                      <Button variant="ghost" className={activeLinkClass}>{item.title}</Button>
                     </NavigationMenuLink>
                   ) : (
-                    <span className="text-sm font-medium text-gray-400 opacity-50 px-4 py-2 pointer-events-none select-none">{item.title}</span>
+                    <span className={mutedLinkClass}>{item.title}</span>
                   )}
                 </NavigationMenuItem>
               ))}
@@ -79,21 +102,21 @@ function ImportHeader() {
 
         {/* Right: Sign up + Account */}
         <div className="flex justify-end w-full gap-3">
-          <span className="hidden md:inline-flex items-center px-4 py-2 rounded-md border border-white/50 bg-white/40 text-gray-400 text-sm font-medium opacity-50 pointer-events-none select-none">
+          <span className={signUpClass}>
             Sign up
           </span>
-          <span className="inline-flex items-center px-4 py-2 rounded-md text-white text-sm font-medium opacity-50 pointer-events-none select-none" style={{backgroundColor:"#f01e2c"}}>
+          <span className="inline-flex items-center px-4 py-2 rounded-md text-white text-sm font-medium opacity-90 pointer-events-none select-none shadow-[0_8px_24px_rgba(240,30,44,0.28)]" style={{backgroundColor:"#f01e2c"}}>
             Account
           </span>
         </div>
 
         {/* Mobile hamburger */}
         <div className="flex w-12 shrink lg:hidden items-end justify-end">
-          <Button variant="ghost" onClick={() => setOpen(!isOpen)} className="text-gray-800">
+          <Button variant="ghost" onClick={() => setOpen(!isOpen)} className={menuButtonClass}>
             {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </Button>
           {isOpen && (
-            <div className="absolute top-20 border-t border-white/20 flex flex-col w-full right-0 bg-white/80 backdrop-blur-md shadow-lg py-4 container gap-6">
+            <div className={mobileMenuClass}>
               {navigationItems.map((item) => (
                 <div key={item.title}>
                   <div className="flex flex-col gap-2">
@@ -103,11 +126,11 @@ function ImportHeader() {
                         className="flex justify-between items-center"
                         onClick={() => setOpen(false)}
                       >
-                        <span className="text-lg text-gray-800">{item.title}</span>
-                        <MoveRight className="w-4 h-4 stroke-1 text-muted-foreground" />
+                        <span className={mobileActiveClass}>{item.title}</span>
+                        <MoveRight className={mobileIconClass} />
                       </Link>
                     ) : (
-                      <p className="text-lg text-gray-400 opacity-50">{item.title}</p>
+                      <p className={mobileMutedClass}>{item.title}</p>
                     )}
                   </div>
                 </div>

@@ -76,9 +76,9 @@ export default function ImportPage() {
       <div className="import-ambient-gradient pointer-events-none absolute -inset-x-24 top-0 h-[62vh] opacity-80 blur-3xl" />
       <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-[radial-gradient(ellipse_at_bottom,rgba(240,30,44,0.14),transparent_58%)]" />
       <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_bottom,rgba(255,255,255,0.72),rgba(255,255,255,0.18)_42%,rgba(255,255,255,0.52))]" />
-      <ImportHeader />
+      <ImportHeader variant="soft" />
 
-      <div className="relative z-10 flex flex-1 flex-col items-center justify-center px-4 py-28 sm:px-6 lg:px-8">
+      <div className="relative z-10 flex flex-col items-center justify-center px-4 pt-28 pb-8 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center gap-6 w-full max-w-2xl">
 
           {/* single card */}
@@ -224,7 +224,7 @@ export default function ImportPage() {
         </div>
       </div>
 
-      <div className="relative z-10 pb-20">
+      <div className="relative z-10 -mt-8 pb-16">
         <Testimonials />
       </div>
     </div>
