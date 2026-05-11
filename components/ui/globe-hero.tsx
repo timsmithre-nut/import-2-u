@@ -1,75 +1,107 @@
 "use client";
-import { Canvas, useFrame } from "@react-three/fiber";
-import { PerspectiveCamera } from "@react-three/drei";
-import React, { useRef } from "react";
-import * as THREE from "three";
+import Image from "next/image";
+import React from "react";
 import { cn } from "@/lib/utils";
+
 interface DotGlobeHeroProps {
   rotationSpeed?: number;
   globeRadius?: number;
   className?: string;
   children?: React.ReactNode;
 }
-const Globe: React.FC<{
-  rotationSpeed: number;
-  radius: number;
-}> = ({ rotationSpeed, radius }) => {
-  const groupRef = useRef<THREE.Group>(null!);
-  useFrame(() => {
-    if (groupRef.current) {
-      groupRef.current.rotation.y += rotationSpeed;
-      groupRef.current.rotation.x += rotationSpeed * 0.3;
-      groupRef.current.rotation.z += rotationSpeed * 0.1;
-    }
-  });
+
+const heroImages = [
+  "/hero-carousel/photo-1.jpg",
+  "/hero-carousel/photo-2.jpg",
+  "/hero-carousel/photo-3.jpg",
+  "/hero-carousel/photo-4.jpg",
+  "/hero-carousel/photo-5.jpg",
+  "/hero-carousel/photo-6.jpg",
+];
+
+const columnImageSets = [
+  [...heroImages, ...heroImages],
+  [...heroImages.slice(3), ...heroImages.slice(0, 3), ...heroImages],
+  [...heroImages.slice(1), ...heroImages.slice(0, 1), ...heroImages],
+  [...heroImages.slice(4), ...heroImages.slice(0, 4), ...heroImages],
+];
+
+function HeroCarouselColumn({
+  images,
+  direction,
+  className,
+}: {
+  images: string[];
+  direction: "up" | "down";
+  className?: string;
+}) {
   return (
-    <group ref={groupRef}>
-      <mesh>
-        <sphereGeometry args={[radius, 64, 64]} />
-        <meshBasicMaterial
-          color="#f01e2c"
-          transparent
-          opacity={0.15}
-          wireframe
-        />
-      </mesh>
-    </group>
+    <div className={cn("min-w-0", className)}>
+      <div
+        className={cn(
+          "flex flex-col gap-5",
+          direction === "up" ? "hero-carousel-up" : "hero-carousel-down"
+        )}
+      >
+        {[...images, ...images].map((src, index) => (
+          <div
+            key={`${src}-${index}`}
+            className="relative h-40 overflow-hidden rounded-2xl border border-white/30 bg-white/20 shadow-xl shadow-black/20 md:h-48 lg:h-56"
+          >
+            <Image
+              src={src}
+              alt=""
+              fill
+              className="object-cover"
+              sizes="(max-width: 767px) 50vw, (max-width: 1023px) 33vw, 25vw"
+              priority={index < 4}
+            />
+          </div>
+        ))}
+      </div>
+    </div>
   );
-};
+}
+
 const DotGlobeHero = React.forwardRef<
   HTMLDivElement,
   DotGlobeHeroProps
 >(({
-  rotationSpeed = 0.005,
-  globeRadius = 1,
+  rotationSpeed,
+  globeRadius,
   className,
   children,
   ...props
 }, ref) => {
+  void rotationSpeed;
+  void globeRadius;
+
   return (
     <div
       ref={ref}
       className={cn(
-        "relative w-full h-screen bg-background overflow-hidden",
+        "relative w-full min-h-screen overflow-hidden bg-background",
         className
       )}
       {...props}
     >
-      <div className="relative z-10 flex flex-col items-center justify-center h-full">
-        {children}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <div className="absolute inset-x-0 -top-48 grid grid-cols-2 gap-4 px-4 opacity-90 sm:grid-cols-3 md:-top-56 md:gap-6 md:px-8 lg:grid-cols-4">
+          {columnImageSets.map((images, index) => (
+            <HeroCarouselColumn
+              key={index}
+              images={images}
+              direction={index % 2 === 0 ? "up" : "down"}
+              className={cn(index === 3 && "hidden lg:block", index === 2 && "hidden sm:block")}
+            />
+          ))}
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/35 to-black/60 backdrop-blur-[2px]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.38)_68%)]" />
       </div>
 
-      <div className="absolute inset-0 z-0 pointer-events-none">
-        <Canvas>
-          <PerspectiveCamera makeDefault position={[0, 0, 3]} fov={75} />
-          <ambientLight intensity={0.5} />
-          <pointLight position={[10, 10, 10]} intensity={1} />
-
-          <Globe
-            rotationSpeed={rotationSpeed}
-            radius={globeRadius}
-          />
-        </Canvas>
+      <div className="relative z-10 flex min-h-screen flex-col items-center justify-center">
+        {children}
       </div>
     </div>
   );

@@ -128,3 +128,39 @@
     @apply font-sans;
   }
 }
+
+@keyframes hero-carousel-up {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-50%);
+  }
+}
+
+@keyframes hero-carousel-down {
+  from {
+    transform: translateY(-50%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.hero-carousel-up {
+  animation: hero-carousel-up 44s linear infinite;
+  will-change: transform;
+}
+
+.hero-carousel-down {
+  animation: hero-carousel-down 44s linear infinite;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-carousel-up,
+  .hero-carousel-down {
+    animation-duration: 1ms;
+    animation-iteration-count: 1;
+  }
+}

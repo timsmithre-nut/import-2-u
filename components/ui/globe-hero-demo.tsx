@@ -24,17 +24,17 @@ export default function DotGlobeHeroDemo() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.3 }}
-              className="text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-black tracking-tighter leading-[0.85] select-none"
+              className="text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-black tracking-normal leading-[0.85] text-white select-none drop-shadow-2xl"
               style={{ fontFamily: 'Inter, system-ui, sans-serif' }}
             >
-              <span className="block font-light text-foreground/70 mb-3 text-4xl md:text-6xl lg:text-7xl">
+              <span className="block font-light text-white/80 mb-3 text-4xl md:text-6xl lg:text-7xl">
                 Import
               </span>
               <span className="block relative">
-                <span className="bg-gradient-to-br from-primary via-primary to-primary/60 bg-clip-text text-transparent font-black relative z-10">
+                <span className="relative z-10 bg-gradient-to-br from-white via-white to-white/70 bg-clip-text font-black text-transparent">
                   Anything
                 </span>
-                <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary to-primary/60 bg-clip-text text-transparent font-black blur-2xl opacity-50 scale-105"
+                <div className="absolute inset-0 scale-105 bg-gradient-to-br from-white via-white to-white/70 bg-clip-text font-black text-transparent opacity-50 blur-2xl"
                      style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
                   Anything
                 </div>
@@ -42,7 +42,7 @@ export default function DotGlobeHeroDemo() {
                   initial={{ width: 0 }}
                   animate={{ width: "100%" }}
                   transition={{ duration: 1.5, delay: 1.2, ease: "easeOut" }}
-                  className="absolute -bottom-6 left-0 h-3 bg-gradient-to-r from-primary via-primary/80 to-transparent rounded-full shadow-lg shadow-primary/50"
+                  className="absolute -bottom-6 left-0 h-3 rounded-full bg-gradient-to-r from-[#f01e2c] via-[#f01e2c]/80 to-transparent shadow-lg shadow-black/30"
                 />
               </span>
             </motion.h1>
@@ -54,10 +54,10 @@ export default function DotGlobeHeroDemo() {
             transition={{ duration: 0.8, delay: 0.8 }}
             className="max-w-3xl mx-auto space-y-4"
           >
-            <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed font-medium"
+            <p className="text-xl md:text-2xl text-white/85 leading-relaxed font-medium drop-shadow-lg"
                style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
               Bring your favourite products from abroad straight to your door in Switzerland{" "}
-              <span className="text-foreground font-semibold bg-gradient-to-r from-primary/20 to-primary/10 px-2 py-1 rounded-md">
+              <span className="rounded-md bg-white/14 px-2 py-1 font-semibold text-white backdrop-blur-sm">
                 fast, easy, and hassle-free
               </span>
             </p>
