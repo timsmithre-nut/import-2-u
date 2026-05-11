@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { ImportHeader } from "@/components/ui/import-header";
+import { Testimonials } from "@/components/ui/testimonials-columns-1";
 import { Check } from "lucide-react";
 
 const STEPS = ["URL", "Price", "Info", "Import"] as const;
@@ -74,54 +75,54 @@ export default function ImportPage() {
   const total = parseFloat((originalPrice + fee).toFixed(2));
 
   return (
-    <div className="min-h-screen w-full bg-gradient-to-br from-white via-red-100 to-red-400 flex flex-col">
+    <div className="relative flex min-h-screen w-full flex-col overflow-hidden bg-[#FFF7F7]">
+      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.96)_0%,rgba(255,247,247,0.9)_34%,rgba(255,223,228,0.42)_68%,rgba(240,30,44,0.1)_100%)]" />
+      <div className="import-ambient-gradient pointer-events-none absolute -inset-x-24 top-0 h-[62vh] opacity-80 blur-3xl" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-[radial-gradient(ellipse_at_bottom,rgba(240,30,44,0.14),transparent_58%)]" />
+      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_bottom,rgba(255,255,255,0.72),rgba(255,255,255,0.18)_42%,rgba(255,255,255,0.52))]" />
       <ImportHeader />
 
-      <div className="flex flex-1 flex-col items-center justify-center px-4 py-6">
+      <div className="relative z-10 flex flex-1 flex-col items-center justify-center px-4 py-28 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center gap-6 w-full max-w-2xl">
 
           {/* single card */}
-          <div className="w-full bg-white/40 backdrop-blur-sm border border-white/50 rounded-2xl shadow-xl overflow-hidden">
+          <div className="w-full overflow-hidden rounded-[2rem] border border-white/60 bg-white/70 shadow-[0_28px_90px_rgba(154,38,50,0.16)] backdrop-blur-xl ring-1 ring-white/45">
 
             {/* card body */}
-            <div className="px-10 pt-10 pb-0">
+            <div className="px-5 pt-8 pb-0 sm:px-10 sm:pt-10">
               <Stepper current={step} />
             </div>
 
             {/* ── Step 1: URL ── */}
             {step === 0 && (
-              <div className="px-10 pb-10 flex flex-col gap-5">
+              <div className="flex flex-col gap-5 px-5 pb-8 sm:px-10 sm:pb-10">
                 <h2 className="text-gray-800 font-semibold text-lg">Enter the product URL</h2>
 
-                <div className="flex gap-3">
+                <div className="flex flex-col gap-3 sm:flex-row">
                   <Input
                     type="url"
                     placeholder="https://example.com/product"
                     value={url}
                     onChange={(e) => setUrl(e.target.value)}
                     onKeyDown={(e) => e.key === "Enter" && url.trim() && setStep(1)}
-                    className="flex-1 bg-white/70 border-white/60 rounded-xl h-12 px-4 text-base placeholder:text-gray-400 focus-visible:ring-[#f01e2c]"
+                    className="h-12 flex-1 rounded-xl border-white/70 bg-white/80 px-4 text-base text-gray-900 shadow-sm placeholder:text-gray-400 focus-visible:ring-[#f01e2c]"
                   />
                   <Button
                     onClick={() => url.trim() && setStep(1)}
-                    className="h-12 px-6 rounded-xl bg-[#f01e2c] hover:bg-[#c8121f] text-white text-base"
+                    className="h-12 w-full rounded-xl bg-[#f01e2c] px-6 text-base text-white shadow-lg shadow-[#f01e2c]/20 hover:bg-[#c8121f] sm:w-auto"
                   >
                     Continue
                   </Button>
-                </div>
-
-                <div className="bg-white/30 rounded-xl px-5 py-4 text-base text-gray-600 leading-relaxed">
-                  ⚠️ <span className="font-medium text-gray-700">Disclaimer:</span> You need to enter a valid product page. This webpage needs to be from a partner company.
                 </div>
               </div>
             )}
 
             {/* ── Step 2: Price ── */}
             {step === 1 && (
-              <div className="px-10 pb-10 flex flex-col gap-5">
+              <div className="flex flex-col gap-5 px-5 pb-8 sm:px-10 sm:pb-10">
                 <h2 className="text-gray-800 font-semibold text-xl text-center">Our Offer</h2>
 
-                <div className="flex flex-col gap-4 bg-white/30 rounded-xl px-6 py-5">
+                <div className="flex flex-col gap-4 rounded-xl border border-white/60 bg-white/55 px-6 py-5 shadow-sm">
                   <div className="flex items-center justify-between">
                     <span className="text-gray-600 text-base">Original Price</span>
                     <span className="text-gray-800 font-bold text-base">CHF {originalPrice.toFixed(2)}</span>
@@ -140,7 +141,7 @@ export default function ImportPage() {
 
                 <Button
                   onClick={() => setStep(2)}
-                  className="w-full h-12 rounded-xl bg-[#f01e2c] hover:bg-[#c8121f] text-white text-base"
+                  className="h-12 w-full rounded-xl bg-[#f01e2c] text-base text-white shadow-lg shadow-[#f01e2c]/20 hover:bg-[#c8121f]"
                 >
                   Accept
                 </Button>
@@ -149,46 +150,46 @@ export default function ImportPage() {
 
             {/* ── Step 3: Info ── */}
             {step === 2 && (
-              <div className="px-10 pb-10 flex flex-col gap-5">
+              <div className="flex flex-col gap-5 px-5 pb-8 sm:px-10 sm:pb-10">
                 <h2 className="text-gray-800 font-semibold text-lg">Your details</h2>
 
                 <div className="flex flex-col gap-4">
-                  <div className="flex gap-4">
+                  <div className="flex flex-col gap-4 sm:flex-row">
                     <div className="flex flex-col gap-2 flex-1">
                       <label className="text-gray-700 text-sm font-medium">First Name</label>
-                      <Input className="bg-white/70 border-white/60 rounded-lg h-11 text-base focus-visible:ring-[#f01e2c]" placeholder="Jane" />
+                      <Input className="h-11 rounded-lg border-white/70 bg-white/80 text-base text-gray-900 shadow-sm focus-visible:ring-[#f01e2c]" placeholder="Jane" />
                     </div>
                     <div className="flex flex-col gap-2 flex-1">
                       <label className="text-gray-700 text-sm font-medium">Last Name</label>
-                      <Input className="bg-white/70 border-white/60 rounded-lg h-11 text-base focus-visible:ring-[#f01e2c]" placeholder="Smith" />
+                      <Input className="h-11 rounded-lg border-white/70 bg-white/80 text-base text-gray-900 shadow-sm focus-visible:ring-[#f01e2c]" placeholder="Smith" />
                     </div>
                   </div>
 
                   <div className="flex flex-col gap-2">
                     <label className="text-gray-700 text-sm font-medium">Email</label>
-                    <Input type="email" className="bg-white/70 border-white/60 rounded-lg h-11 text-base focus-visible:ring-[#f01e2c]" placeholder="jane@example.com" />
+                    <Input type="email" className="h-11 rounded-lg border-white/70 bg-white/80 text-base text-gray-900 shadow-sm focus-visible:ring-[#f01e2c]" placeholder="jane@example.com" />
                   </div>
 
-                  <div className="flex gap-4">
-                    <div className="flex flex-col gap-2 w-36">
+                  <div className="flex flex-col gap-4 sm:flex-row">
+                    <div className="flex flex-col gap-2 sm:w-36">
                       <label className="text-gray-700 text-sm font-medium">Postcode</label>
-                      <Input className="bg-white/70 border-white/60 rounded-lg h-11 text-base focus-visible:ring-[#f01e2c]" placeholder="SW1A 1AA" />
+                      <Input className="h-11 rounded-lg border-white/70 bg-white/80 text-base text-gray-900 shadow-sm focus-visible:ring-[#f01e2c]" placeholder="SW1A 1AA" />
                     </div>
                     <div className="flex flex-col gap-2 flex-1">
                       <label className="text-gray-700 text-sm font-medium">Country</label>
-                      <Input className="bg-white/70 border-white/60 rounded-lg h-11 text-base focus-visible:ring-[#f01e2c]" placeholder="United Kingdom" />
+                      <Input className="h-11 rounded-lg border-white/70 bg-white/80 text-base text-gray-900 shadow-sm focus-visible:ring-[#f01e2c]" placeholder="United Kingdom" />
                     </div>
                   </div>
 
                   <div className="flex flex-col gap-2">
                     <label className="text-gray-700 text-sm font-medium">Address</label>
-                    <Input className="bg-white/70 border-white/60 rounded-lg h-11 text-base focus-visible:ring-[#f01e2c]" placeholder="123 Example Street" />
+                    <Input className="h-11 rounded-lg border-white/70 bg-white/80 text-base text-gray-900 shadow-sm focus-visible:ring-[#f01e2c]" placeholder="123 Example Street" />
                   </div>
                 </div>
 
                 <Button
                   onClick={() => setStep(3)}
-                  className="w-full h-12 rounded-xl bg-[#f01e2c] hover:bg-[#c8121f] text-white text-base"
+                  className="h-12 w-full rounded-xl bg-[#f01e2c] text-base text-white shadow-lg shadow-[#f01e2c]/20 hover:bg-[#c8121f]"
                 >
                   Confirm
                 </Button>
@@ -198,10 +199,10 @@ export default function ImportPage() {
             {/* ── Step 4: Import ── */}
             {step === 3 && (
               <div className="flex flex-col">
-                <div className="px-10 pb-6 flex flex-col gap-5">
+                <div className="flex flex-col gap-5 px-5 pb-6 sm:px-10">
                   <h2 className="text-gray-800 font-semibold text-lg text-center">Add payment method</h2>
 
-                  <div className="grid grid-cols-4 gap-3">
+                  <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
                     {PAYMENT_METHODS.map(({ label, bg, src }) => (
                       <button
                         key={label}
@@ -212,12 +213,12 @@ export default function ImportPage() {
                     ))}
                   </div>
 
-                  <Button className="w-full h-12 rounded-xl bg-[#f01e2c] hover:bg-[#c8121f] text-white text-base">
+                  <Button className="h-12 w-full rounded-xl bg-[#f01e2c] text-base text-white shadow-lg shadow-[#f01e2c]/20 hover:bg-[#c8121f]">
                     Pay
                   </Button>
                 </div>
 
-                <div className="bg-red-600 py-4 px-5 text-white text-base font-medium text-center">
+                <div className="bg-[#f01e2c] py-4 px-5 text-white text-base font-medium text-center">
                   We do not offer Refunds
                 </div>
               </div>
@@ -225,6 +226,10 @@ export default function ImportPage() {
 
           </div>
         </div>
+      </div>
+
+      <div className="relative z-10 pb-20">
+        <Testimonials />
       </div>
     </div>
   );

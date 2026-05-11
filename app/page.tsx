@@ -1,7 +1,6 @@
 import DotGlobeHeroDemo from "@/components/ui/globe-hero-demo";
 import { ImportHeader } from "@/components/ui/import-header";
 import { LogoCloud } from "@/components/ui/logo-cloud-3";
-import { Testimonials } from "@/components/ui/testimonials-columns-1";
 
 const logos = [
   { src: "https://cdn.prod.website-files.com/67e519042689e393c5d4e3ce/67e519042689e393c5d4e422_globus_logo.png", alt: "Globus Logo" },
@@ -28,8 +27,6 @@ export default function Home() {
         <LogoCloud logos={logos} />
         <div className="mt-5 h-px bg-gray-400/40 [mask-image:linear-gradient(to_right,transparent,black,transparent)]" />
       </section>
-
-      <Testimonials />
     </div>
   );
 }
