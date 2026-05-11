@@ -69,10 +69,6 @@ function Stepper({ current }: { current: StepIndex }) {
 export default function ImportPage() {
   const [step, setStep]   = useState<StepIndex>(0);
   const [url,  setUrl]    = useState("");
-  const [originalPrice]   = useState(() => parseFloat((Math.random() * 480 + 20).toFixed(2)));
-
-  const fee   = parseFloat((originalPrice * 0.15).toFixed(2));
-  const total = parseFloat((originalPrice + fee).toFixed(2));
 
   return (
     <div className="relative flex min-h-screen w-full flex-col overflow-hidden bg-[#FFF7F7]">
@@ -124,18 +120,18 @@ export default function ImportPage() {
 
                 <div className="flex flex-col gap-4 rounded-xl border border-white/60 bg-white/55 px-6 py-5 shadow-sm">
                   <div className="flex items-center justify-between">
-                    <span className="text-gray-600 text-base">Original Price</span>
-                    <span className="text-gray-800 font-bold text-base">CHF {originalPrice.toFixed(2)}</span>
+                    <span className="text-gray-600 text-base line-through">Do it yourself (MyUS + customs + stress)</span>
+                    <span className="text-gray-800 font-bold text-base line-through">CHF 185.00</span>
                   </div>
                   <div className="h-px bg-white/60" />
                   <div className="flex items-center justify-between">
-                    <span className="text-gray-600 text-base">Our fee (15%)</span>
-                    <span className="text-gray-800 font-bold text-base">CHF {fee.toFixed(2)}</span>
+                    <span className="text-gray-600 text-base">Our offer</span>
+                    <span className="text-gray-800 font-bold text-base">CHF 135.70</span>
                   </div>
                   <div className="h-px bg-white/60" />
                   <div className="flex items-center justify-between">
-                    <span className="text-gray-700 text-base font-semibold">Total</span>
-                    <span className="text-gray-900 font-bold text-lg">CHF {total.toFixed(2)}</span>
+                    <span className="text-gray-700 text-base font-semibold">You save</span>
+                    <span className="text-gray-900 font-bold text-lg">CHF 49.30</span>
                   </div>
                 </div>
 
