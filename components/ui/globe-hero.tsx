@@ -46,13 +46,13 @@ function HeroCarouselColumn({
         {[...images, ...images].map((src, index) => (
           <div
             key={`${src}-${index}`}
-            className="relative h-40 overflow-hidden rounded-2xl border border-white/30 bg-white/20 shadow-xl shadow-black/20 md:h-48 lg:h-56"
+            className="relative aspect-[3/4] overflow-hidden rounded-2xl border border-white/35 bg-white/85 shadow-xl shadow-black/20"
           >
             <Image
               src={src}
               alt=""
               fill
-              className="object-cover"
+              className="p-2 object-contain"
               sizes="(max-width: 767px) 50vw, (max-width: 1023px) 33vw, 25vw"
               priority={index < 4}
             />
@@ -80,13 +80,13 @@ const DotGlobeHero = React.forwardRef<
     <div
       ref={ref}
       className={cn(
-        "relative w-full min-h-screen overflow-hidden bg-background",
+        "relative mt-20 min-h-[calc(100svh-5rem)] w-full overflow-hidden bg-background",
         className
       )}
       {...props}
     >
       <div className="absolute inset-0 z-0 pointer-events-none">
-        <div className="absolute inset-x-0 -top-48 grid grid-cols-2 gap-4 px-4 opacity-90 sm:grid-cols-3 md:-top-56 md:gap-6 md:px-8 lg:grid-cols-4">
+        <div className="absolute inset-x-0 -top-24 grid grid-cols-2 gap-4 px-4 opacity-90 sm:grid-cols-3 md:-top-32 md:gap-6 md:px-8 lg:grid-cols-4">
           {columnImageSets.map((images, index) => (
             <HeroCarouselColumn
               key={index}
@@ -100,7 +100,7 @@ const DotGlobeHero = React.forwardRef<
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.38)_68%)]" />
       </div>
 
-      <div className="relative z-10 flex min-h-screen flex-col items-center justify-center">
+      <div className="relative z-10 flex min-h-[calc(100svh-5rem)] flex-col items-center justify-center">
         {children}
       </div>
     </div>

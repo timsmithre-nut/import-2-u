@@ -12,7 +12,7 @@ export default function DotGlobeHeroDemo() {
       className="relative overflow-hidden bg-transparent"
     >
 
-      <div className="relative z-10 text-center space-y-12 max-w-5xl mx-auto px-6 py-12">
+      <div className="relative z-10 mx-auto max-w-[1200px] space-y-10 px-6 py-10 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -24,25 +24,25 @@ export default function DotGlobeHeroDemo() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.3 }}
-              className="text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-black tracking-normal leading-[0.9] text-white select-none drop-shadow-2xl"
+              className="font-black tracking-normal leading-[0.9] text-white select-none drop-shadow-2xl"
               style={{ fontFamily: 'Inter, system-ui, sans-serif' }}
             >
-              <span className="block font-medium text-white/85 text-3xl md:text-5xl lg:text-6xl">
+              <span className="block text-[clamp(2.25rem,4vw,4.75rem)] font-medium text-white/85">
                 They don&apos;t ship to Switzerland.
               </span>
-              <span className="relative my-5 block h-3 md:my-7">
+              <span className="relative my-5 block h-[10px] md:my-7">
                 <motion.span
                   initial={{ width: 0 }}
-                  animate={{ width: "100%" }}
+                  animate={{ width: "min(70vw, 1100px)" }}
                   transition={{ duration: 1.5, delay: 1.2, ease: "easeOut" }}
-                  className="absolute left-0 top-1/2 h-3 -translate-y-1/2 rounded-full bg-gradient-to-r from-[#f01e2c] via-[#f01e2c]/80 to-transparent shadow-lg shadow-black/30"
+                  className="absolute left-1/2 top-1/2 h-[10px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-to-r from-[#f01e2c] via-[#f01e2c]/80 to-transparent shadow-lg shadow-black/30"
                 />
               </span>
               <span className="block relative">
-                <span className="relative z-10 bg-gradient-to-br from-white via-white to-white/70 bg-clip-text font-black text-transparent">
+                <span className="relative z-10 bg-gradient-to-br from-white via-white to-white/70 bg-clip-text text-[clamp(4rem,8vw,8rem)] font-black text-transparent">
                   WE DO.
                 </span>
-                <div className="absolute inset-0 scale-105 bg-gradient-to-br from-white via-white to-white/70 bg-clip-text font-black text-transparent opacity-50 blur-2xl"
+                <div className="absolute inset-0 scale-105 bg-gradient-to-br from-white via-white to-white/70 bg-clip-text text-[clamp(4rem,8vw,8rem)] font-black text-transparent opacity-50 blur-2xl"
                      style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
                   WE DO.
                 </div>
@@ -56,7 +56,7 @@ export default function DotGlobeHeroDemo() {
             transition={{ duration: 0.8, delay: 0.8 }}
             className="max-w-3xl mx-auto space-y-4"
           >
-            <p className="text-xl md:text-2xl text-white/85 leading-relaxed font-medium drop-shadow-lg"
+            <p className="text-[clamp(1.1rem,1.6vw,1.75rem)] text-white/85 leading-relaxed font-medium drop-shadow-lg"
                style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
               Gymshark. YoungLA. Alphalete. Delivered to your Swiss address, all duties included, no surprises.
             </p>
@@ -71,12 +71,12 @@ export default function DotGlobeHeroDemo() {
           <motion.button
             onClick={() => router.push("/import")}
             whileHover={{
-              scale: 1.05,
+              scale: 1.03,
               boxShadow: "0 20px 40px rgba(0,0,0,0.2), 0 0 25px hsl(var(--primary) / 0.3)",
               y: -2
             }}
             whileTap={{ scale: 0.98 }}
-            className="group relative inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-primary via-primary to-primary/90 text-primary-foreground rounded-xl font-semibold text-lg shadow-xl hover:shadow-primary/30 transition-all duration-500 overflow-hidden border border-primary/20"
+            className="group relative inline-flex items-center gap-3 overflow-hidden rounded-xl border border-primary/20 bg-gradient-to-r from-primary via-primary to-primary/90 px-6 py-3.5 text-base font-semibold text-primary-foreground shadow-xl transition-all duration-500 hover:shadow-primary/30 md:px-8 md:py-4 md:text-lg"
           >
             <div className="absolute inset-0 bg-gradient-to-r from-white/20 via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             <motion.div
@@ -94,14 +94,14 @@ export default function DotGlobeHeroDemo() {
               document.getElementById("learn-more")?.scrollIntoView({ behavior: "smooth" })
             }
             whileHover={{
-              scale: 1.05,
+              scale: 1.03,
               backgroundColor: "hsl(var(--accent))",
               borderColor: "hsl(var(--primary))",
               boxShadow: "0 15px 30px rgba(0,0,0,0.1), 0 0 15px hsl(var(--primary) / 0.1)",
               y: -2
             }}
             whileTap={{ scale: 0.98 }}
-            className="group relative inline-flex items-center gap-3 px-8 py-4 border-2 border-border/40 rounded-xl font-semibold text-lg hover:border-primary/40 transition-all duration-500 backdrop-blur-xl bg-background/60 hover:bg-background/90 shadow-lg overflow-hidden"
+            className="group relative inline-flex items-center gap-3 overflow-hidden rounded-xl border-2 border-border/40 bg-background/60 px-6 py-3.5 text-base font-semibold shadow-lg backdrop-blur-xl transition-all duration-500 hover:border-primary/40 hover:bg-background/90 md:px-8 md:py-4 md:text-lg"
           >
             <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             <Zap className="relative z-10 w-5 h-5 group-hover:scale-110 group-hover:rotate-6 transition-all duration-300" />
