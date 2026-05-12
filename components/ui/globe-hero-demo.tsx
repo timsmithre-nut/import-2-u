@@ -58,7 +58,7 @@ export default function DotGlobeHeroDemo() {
           >
             <p className="text-[clamp(1.1rem,1.6vw,1.75rem)] text-white/85 leading-relaxed font-medium drop-shadow-lg"
                style={{ fontFamily: 'Inter, system-ui, sans-serif' }}>
-              Gymshark. YoungLA. Alphalete. Delivered to your Swiss address, all duties included, no surprises.
+              Your Favourite Gym Clothes, Delivered to your Swiss address, all duties included, no surprises.
             </p>
           </motion.div>
         </motion.div>
