@@ -46,13 +46,13 @@ function HeroCarouselColumn({
         {[...images, ...images].map((src, index) => (
           <div
             key={`${src}-${index}`}
-            className="relative aspect-[3/4] overflow-hidden rounded-2xl border border-white/35 bg-white/85 shadow-xl shadow-black/20"
+            className="relative aspect-[3/4] overflow-hidden rounded-2xl border border-white/15 shadow-xl shadow-black/20"
           >
             <Image
               src={src}
               alt=""
               fill
-              className="p-2 object-contain"
+              className="object-cover object-top"
               sizes="(max-width: 767px) 50vw, (max-width: 1023px) 33vw, 25vw"
               priority={index < 4}
             />
