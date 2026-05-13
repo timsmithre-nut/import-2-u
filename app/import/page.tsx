@@ -7,8 +7,8 @@ import { ImportHeader } from "@/components/ui/import-header";
 import { Testimonials } from "@/components/ui/testimonials-columns-1";
 import { Check } from "lucide-react";
 
-const STEPS = ["URL", "Price", "Info", "Import"] as const;
-type StepIndex = 0 | 1 | 2 | 3;
+const STEPS = ["URL", "Details", "Price", "Info", "Import"] as const;
+type StepIndex = 0 | 1 | 2 | 3 | 4;
 
 const PAYMENT_METHODS = [
   { label: "PayPal",      bg: "bg-[#003087]", src: "/paypal-svgrepo-com.svg" },
@@ -69,6 +69,9 @@ function Stepper({ current }: { current: StepIndex }) {
 export default function ImportPage() {
   const [step, setStep]   = useState<StepIndex>(0);
   const [url,  setUrl]    = useState("");
+  const [size, setSize]   = useState("");
+  const [color, setColor] = useState("");
+  const [extraUrl, setExtraUrl] = useState("");
 
   return (
     <div className="relative flex min-h-screen w-full flex-col overflow-hidden bg-[#FFF7F7]">
@@ -113,8 +116,63 @@ export default function ImportPage() {
               </div>
             )}
 
-            {/* ── Step 2: Price ── */}
+            {/* ── Step 2: Details ── */}
             {step === 1 && (
+              <div className="flex flex-col gap-5 px-5 pb-8 sm:px-10 sm:pb-10">
+                <h2 className="text-gray-800 font-semibold text-lg">Product details</h2>
+
+                <div className="flex flex-col gap-4">
+                  <div className="flex flex-col gap-4 sm:flex-row">
+                    <div className="flex flex-col gap-2 flex-1">
+                      <label className="text-gray-700 text-sm font-medium">Size</label>
+                      <Input
+                        className="h-11 rounded-lg border-white/70 bg-white/80 text-base text-gray-900 shadow-sm focus-visible:ring-[#f01e2c]"
+                        placeholder="e.g. M, 42, 10"
+                        value={size}
+                        onChange={(e) => setSize(e.target.value)}
+                      />
+                    </div>
+                    <div className="flex flex-col gap-2 flex-1">
+                      <label className="text-gray-700 text-sm font-medium">Color</label>
+                      <Input
+                        className="h-11 rounded-lg border-white/70 bg-white/80 text-base text-gray-900 shadow-sm focus-visible:ring-[#f01e2c]"
+                        placeholder="e.g. Black, Red"
+                        value={color}
+                        onChange={(e) => setColor(e.target.value)}
+                      />
+                    </div>
+                  </div>
+
+                  <div className="flex flex-col gap-2">
+                    <label className="text-gray-700 text-sm font-medium">Add another product URL</label>
+                    <Input
+                      type="url"
+                      className="h-11 rounded-lg border-white/70 bg-white/80 text-base text-gray-900 shadow-sm focus-visible:ring-[#f01e2c]"
+                      placeholder="https://example.com/product"
+                      value={extraUrl}
+                      onChange={(e) => setExtraUrl(e.target.value)}
+                    />
+                  </div>
+                </div>
+
+                <div className="flex gap-3">
+                  <Button
+                    className="h-12 flex-1 rounded-xl border-2 border-[#f01e2c] bg-transparent text-base text-[#f01e2c] hover:bg-[#f01e2c]/5"
+                  >
+                    Add
+                  </Button>
+                  <Button
+                    onClick={() => setStep(2)}
+                    className="h-12 flex-1 rounded-xl bg-[#f01e2c] text-base text-white shadow-lg shadow-[#f01e2c]/20 hover:bg-[#c8121f]"
+                  >
+                    Continue
+                  </Button>
+                </div>
+              </div>
+            )}
+
+            {/* ── Step 3: Price ── */}
+            {step === 2 && (
               <div className="flex flex-col gap-5 px-5 pb-8 sm:px-10 sm:pb-10">
                 <h2 className="text-gray-800 font-semibold text-xl text-center">Our Offer</h2>
 
@@ -136,7 +194,7 @@ export default function ImportPage() {
                 </div>
 
                 <Button
-                  onClick={() => setStep(2)}
+                  onClick={() => setStep(3)}
                   className="h-12 w-full rounded-xl bg-[#f01e2c] text-base text-white shadow-lg shadow-[#f01e2c]/20 hover:bg-[#c8121f]"
                 >
                   Accept
@@ -144,8 +202,8 @@ export default function ImportPage() {
               </div>
             )}
 
-            {/* ── Step 3: Info ── */}
-            {step === 2 && (
+            {/* ── Step 4: Info ── */}
+            {step === 3 && (
               <div className="flex flex-col gap-5 px-5 pb-8 sm:px-10 sm:pb-10">
                 <h2 className="text-gray-800 font-semibold text-lg">Your details</h2>
 
@@ -184,7 +242,7 @@ export default function ImportPage() {
                 </div>
 
                 <Button
-                  onClick={() => setStep(3)}
+                  onClick={() => setStep(4)}
                   className="h-12 w-full rounded-xl bg-[#f01e2c] text-base text-white shadow-lg shadow-[#f01e2c]/20 hover:bg-[#c8121f]"
                 >
                   Confirm
@@ -192,8 +250,8 @@ export default function ImportPage() {
               </div>
             )}
 
-            {/* ── Step 4: Import ── */}
-            {step === 3 && (
+            {/* ── Step 5: Import ── */}
+            {step === 4 && (
               <div className="flex flex-col">
                 <div className="flex flex-col gap-5 px-5 pb-6 sm:px-10">
                   <h2 className="text-gray-800 font-semibold text-lg text-center">Add payment method</h2>
