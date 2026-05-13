@@ -215,7 +215,7 @@ export default function ImportPage() {
                 </div>
 
                 <div className="bg-[#f01e2c] py-4 px-5 text-white text-base font-medium text-center">
-                  We do not offer Refunds
+                  Thank you for your order!
                 </div>
               </div>
             )}
